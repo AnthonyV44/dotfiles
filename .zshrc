@@ -181,4 +181,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# Aliases
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
+alias gac="git add . && git commit -m" # + commit message
+alias gi="git init && gac 'Initial commit'"
+alias gc="git commit"
