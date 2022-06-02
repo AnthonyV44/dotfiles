@@ -113,7 +113,9 @@ source $ZSH/oh-my-zsh.sh
 
 # vi mode
 bindkey -v
-export KEYTIMEOUT=1
+bindkey 'jk' vi-cmd-mode
+bindkey 'kj' vi-cmd-mode
+export KEYTIMEOUT=25
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -138,6 +140,20 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
+
+# Use beam shape cursor on startup.
+echo -ne '\e[5 q'
+
+# Use beam shape cursor for each new prompt.
+# https://unix.stackexchange.com/questions/433273/changing-cursor-style-based-on-mode-in-both-zsh-and-vim
+#preexec() {
+#  echo -ne '\e[5 q'
+#}
+_fix_cursor() {
+  echo -ne '\e[5 q'
+}
+
+precmd_functions+=(_fix_cursor)
 
 # ci", ci', ci`, di", etc
 autoload -U select-quoted
@@ -171,6 +187,9 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completionexport PYENV_ROOT="$HOME/.pyenv"
 
+# homebrew request
+export PATH="/usr/local/sbin:$PATH"
+
 # Jetbrains generated shell scripts
 export PATH="$HOME/.config/jetbrains:$PATH"
 
@@ -179,6 +198,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 
 if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
 fi
 
@@ -187,3 +207,6 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
 alias gac="git add . && git commit -m" # + commit message
 alias gi="git init && gac 'Initial commit'"
 alias gc="git commit"
+alias grsh="git reset --soft HEAD~1"
+alias k=kubectl
+
