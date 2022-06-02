@@ -3,15 +3,11 @@ let mapleader="\<Space>"
 
 """ Plugins  --------------------------------
 set surround
-set multiple-cursors
-set commentary
-set argtextobj
 set easymotion
-set ReplaceWithRegister
 set highlightedyank
+set NERDTree
 
 """ Plugin settings -------------------------
-let g:argtextobj_pairs="[:],(:),<:>"
 
 """ Common settings -------------------------
 """ https://github.com/JetBrains/ideavim/blob/master/doc/set-commands.md
@@ -29,8 +25,22 @@ set number relativenumber           " print the line number in front of each lin
 """ Idea specific settings ------------------
 set ideajoin                        " If true, join command will be performed via IDE
 " set idearefactormode=keep           " Define the mode that would be enabled during the refactoring (keep, select, visual)
-set ideawaonw
+
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+map <leader>z <Action>(ToggleDistractionFreeMode)
+map <leader>i <Action>(ReSharperGotoImplementation)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>o <Action>(FileStructurePopup)
+map <leader>` <Action>(RiderOpenSolution)
+
+vnoremap <C-c> "+y
+map <C-v> "+p
 
 """ I hate escape more than anything else
 inoremap jk <Esc>
 inoremap kj <Esc>
+
+""" NERDTree mappings
+nnoremap <leader>n :NERDTreeFocus<CR>
