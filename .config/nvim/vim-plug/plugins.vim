@@ -34,7 +34,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mhinz/vim-startify'
 
     " File Explorer
-    Plug 'scrooloose/NERDTree'
+    Plug 'preservim/nerdtree'
 
     " conquerer of completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -50,6 +50,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Cool Icons
     Plug 'ryanoasis/vim-devicons'
+
+    " Indent Guide
+    Plug 'Yggdroot/indentLine'
 
 call plug#end()
 

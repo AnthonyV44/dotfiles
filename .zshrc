@@ -81,7 +81,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,underline"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages vscode zsh-autosuggestions zsh-syntax-highlighting sublime z)
+plugins=(git colored-man-pages vscode zsh-autosuggestions zsh-syntax-highlighting sublime z macos timer)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -188,7 +188,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completionexport PYENV_ROOT="$HOME/.pyenv"
 
 # homebrew request
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # Jetbrains generated shell scripts
 export PATH="$HOME/.config/jetbrains:$PATH"
@@ -208,5 +208,41 @@ alias gac="git add . && git commit -m" # + commit message
 alias gi="git init && gac 'Initial commit'"
 alias gc="git commit"
 alias grsh="git reset --soft HEAD~1"
+alias gfclean="git clean -df"
+alias gdtl="git difftool --no-prompt"
+alias gdtlvim="git difftool --no-prompt --tool=vimdiff"
 alias k=kubectl
+
+
+# prevent certain commands from being added to command history
+zshaddhistory() {
+    local line=${1%%$'\n'}
+    local cmd=${line%% *}
+
+    # Only those that satisfy all of the following conditions are added to the history
+    [[ ${#line} -ge 5
+       && ${cmd} != ll
+       && ${cmd} != ls
+       && ${cmd} != la
+       && ${cmd} != cd
+       && ${cmd} != man
+       && ${cmd} != scp
+       && ${cmd} != vim
+       && ${cmd} != nvim
+       && ${cmd} != less
+       && ${cmd} != ping
+       && ${cmd} != open
+       && ${cmd} != file
+       && ${cmd} != which
+       && ${cmd} != whois
+       && ${cmd} != drill
+       && ${cmd} != uname
+       && ${cmd} != md5sum
+       && ${cmd} != pacman
+       && ${cmd} != xdg-open
+       && ${cmd} != traceroute
+       && ${cmd} != speedtest-cli
+    ]]
+}
+zshaddhistory
 

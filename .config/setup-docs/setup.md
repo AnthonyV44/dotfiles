@@ -1,7 +1,9 @@
+* Install Xcode (app store)
 * Install brew (https://brew.sh/)
 * Install kitty `brew cask install kitty`
 * Install VS Code `brew cask install visual-studio-code`
 * Install Sublime Text `brew cask install sublime-text`
+  * Enable Vintage mode
 * Install GitHub CLI `brew install github/gh/gh`
 * Install jq `brew install jq`
 * Install git `brew install git`
@@ -23,6 +25,19 @@
 * Install marta `brew cask install marta`
 * Install exa `brew install exa`
 * Install wget `brew install wget`
+* Install httpie `brew install httpie`
+* Install Usage (app store)
+* Install Mini Calendar (app store)
+* Install Amphetamine (app store)
+* Install Clocker (app store)
+* Install Magnet (app store)
+* Install Clipy
+* Install Docker
+* Install GitHub Desktop
+* Install Postman
+* Update zsh options (https://scriptingosx.com/2019/06/moving-to-zsh-part-3-shell-options/)
+  * `set -o HIST_EXPIRE_DUPS_FIRST`
+  * `set -o NO_CASE_GLOB`
 
 
 Investigate

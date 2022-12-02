@@ -33,6 +33,7 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 "" Whitespace
 set nowrap                              " Display long lines as just one line
 set tabstop=2                           " Insert 2 spaces for a tab
+set softtabstop=2                       " 
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set expandtab                           " Converts tabs to spaces
 
