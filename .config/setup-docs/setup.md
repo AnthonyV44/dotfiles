@@ -5,6 +5,7 @@
 * Install Sublime Text `brew cask install sublime-text`
   * Enable Vintage mode
 * Install GitHub CLI `brew install github/gh/gh`
+* Install JetBrains Mono Nerd Font (https://www.nerdfonts.com/font-downloads)
 * Install jq `brew install jq`
 * Install git `brew install git`
 * Install git lfs `brew install git-lfs`

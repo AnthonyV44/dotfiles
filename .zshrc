@@ -1,3 +1,12 @@
+echo " __  __                                                      "
+echo "/\ \/\ \  __                                                 "
+echo "\ \ \ \ \/\_\  ____     ___     __     _ __   _ __    __     "
+echo " \ \ \ \ \/\ \/\_ ,\`\  /'___\ /'__\`\  /\\\`'__\/\\\`'__\/'__\`\   "
+echo "  \ \ \_/ \ \ \/_/  /_/\ \__//\ \L\.\_\ \ \/ \ \ \//\ \L\.\_ "
+echo "   \ \`\___/\ \_\/\____\ \____\ \__/.\_\\ \_\  \ \_\\ \__/.\_\\"
+echo "    \`\/__/  \/_/\/____/\/____/\/__/\/_/ \/_/   \/_/ \/__/\/_/"
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -176,33 +185,14 @@ done
 # Source configs
 for f in ~/.config/shellconfig/*; do source "$f"; done
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
-
-# NVM configurations
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completionexport PYENV_ROOT="$HOME/.pyenv"
-
-# homebrew request
-export PATH="/usr/local/bin:$PATH"
-
 # Jetbrains generated shell scripts
 export PATH="$HOME/.config/jetbrains:$PATH"
 
-# pyenv configurations
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Aliases
+alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
 alias df="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
 alias gac="git add . && git commit -m" # + commit message
 alias gi="git init && gac 'Initial commit'"
