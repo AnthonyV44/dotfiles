@@ -23,6 +23,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " vim wiki
     Plug 'vimwiki/vimwiki'
 
+    " Markdown viewing & editing helpers
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'MeanderingProgrammer/render-markdown.nvim'
+    Plug 'tadmccorkle/markdown.nvim'
+
+    " Optional live browser preview
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+
+    " Quick note capture & retrieval
+    Plug 'zk-org/zk-nvim'
 
 
     " ---- UTILITIES ----
@@ -38,7 +48,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " conquerer of completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " Fuzzy finder & required dependency
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+
+    Plug 'rachartier/tiny-cmdline.nvim'
     
+    " Install standalone mini.cmdline (or use 'nvim-mini/mini.nvim' for the full suite)
+    Plug 'nvim-mini/mini.cmdline'
+
 
     " ---- PRESENTATION ----
 

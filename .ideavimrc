@@ -35,8 +35,8 @@ map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
 map <leader>` <Action>(RiderOpenSolution)
 
-vnoremap <C-c> "+y
-map <C-v> "+p
+"vnoremap <C-c> "+y
+"map <C-v> "+p
 
 """ I hate escape more than anything else
 inoremap jk <Esc>
