@@ -121,10 +121,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # vi mode
+export EDITOR=vim
+export VISUAL=vim
+
 bindkey -v
 bindkey 'jk' vi-cmd-mode
 bindkey 'kj' vi-cmd-mode
-export KEYTIMEOUT=25
+export KEYTIMEOUT=1000
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -185,11 +188,17 @@ done
 # Source configs
 for f in ~/.config/shellconfig/*; do source "$f"; done
 
+alias python=python3
+
+export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
+
 # Jetbrains generated shell scripts
 export PATH="$HOME/.config/jetbrains:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
+
+export PATH="$HOME/.docker/bin:$PATH"
 
 # Aliases
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
@@ -202,6 +211,24 @@ alias gfclean="git clean -df"
 alias gdtl="git difftool --no-prompt"
 alias gdtlvim="git difftool --no-prompt --tool=vimdiff"
 alias k=kubectl
+
+alias githome="cd ~/git/"
+alias gitzaita="cd ~/git/clients/upwork-zaita/"
+alias gitme="cd ~/git/AnthonyV44/"
+alias gitfast="cd ~/git/rising-fenix/fast/"
+alias mydocs="cd ~/Documents/"
+
+alias edzsh="nvim ~/.zshrc"
+
+
+ctask() {
+    if [ -z "$1" ]; then
+        echo "Error: Please provide a task number."
+        echo "Usage: ctask <task_number>"
+        return 1
+    fi
+    claude -w "task-$1" "/fast-task $1"
+}
 
 
 # prevent certain commands from being added to command history
@@ -236,3 +263,5 @@ zshaddhistory() {
 }
 zshaddhistory
 
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
